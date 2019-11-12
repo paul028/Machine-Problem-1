@@ -8,7 +8,7 @@ Student Number: 2018-21366
 EE 214 MP 1.1
 
 """
-
+from statistics import mean
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -61,25 +61,34 @@ for S_k in range(0,no_toss):#Calculate how many trials yield n no of heads,
 
 
 
+#A
+c=33
+a1=np.zeros(12)
+ave1=np.zeros(12)
+i=0
+for x in range(0,36,3):    
+    a1[i]= sum_of_3Sk(c+x,c+x+1,c+x+2) 
+    ave1[i]= mean([c+x,c+x+1,c+x+2])
+    print('N_1000(S_%d) + N_1000(S_%d) + N_1000(S_%d) = %d' % (c+x,c+x+1,c+x+2,a1[i]))
+    i=i+1
+#G1=sum_of_3Sk(33,34,35)
+#G2=sum_of_3Sk(36,37,38)
+#G3=sum_of_3Sk(39,40,41)
+#G4=sum_of_3Sk(42,43,44)
+#G5=sum_of_3Sk(45,46,47)
+#G6=sum_of_3Sk(48,49,50)
+#G7=sum_of_3Sk(51,52,53)
+#G8=sum_of_3Sk(54,55,56)
+#G9=sum_of_3Sk(57,58,59)
+#G10=sum_of_3Sk(60,61,62)
+#G11=sum_of_3Sk(63,64,65)
+#G12=sum_of_3Sk(66,67,68)
 
-G1=sum_of_3Sk(33,34,35)
-G2=sum_of_3Sk(36,37,38)
-G3=sum_of_3Sk(39,40,41)
-G4=sum_of_3Sk(42,43,44)
-G5=sum_of_3Sk(45,46,47)
-G6=sum_of_3Sk(48,49,50)
-G7=sum_of_3Sk(51,52,53)
-G8=sum_of_3Sk(54,55,56)
-G9=sum_of_3Sk(57,58,59)
-G10=sum_of_3Sk(60,61,62)
-G11=sum_of_3Sk(63,64,65)
-G12=sum_of_3Sk(66,67,68)
-
-ave = ['34','37','40','43','46','49','52','55','58','61','64','67']
-k = [G1,G2,G3,G4,G5,G6,G7,G8,G9,G10,G11,G12]
+#ave = ['34','37','40','43','46','49','52','55','58','61','64','67']
+#k = [G1,G2,G3,G4,G5,G6,G7,G8,G9,G10,G11,G12]
  
 # Plot the bar graph
-plot = plt.bar(ave,k)
+plot = plt.bar(ave1,a1)
  
 # Add the data value on head of the bar
 for value in plot:
