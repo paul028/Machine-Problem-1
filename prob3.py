@@ -40,3 +40,11 @@ def binpmf(n,p,k)
 
 prob_X_K=binpmf(n,p,k)
 print("Calculation Time: %s seconds "(time.time() - start_time))
+
+plt.plot(prob_n)
+plt.ylabel(r'$\P_k(K)$')
+plt.xlabel('k')
+plt.title('Probability Curve')
+
+plt.savefig('result3.1.png')
+plt.show()
