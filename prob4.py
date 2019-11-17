@@ -37,8 +37,14 @@ def zipfunc(n,p):
 
 n=1000
 
-p1=0.8
-k1=zipfunc(10,0.75)
+p1=0.7
+k1=zipfunc(n,p1)
+
+p2=0.8
+k2=zipfunc(n,p2)
+
+p3=0.9
+k3=zipfunc(n,p3)
 
 plt.plot(k1)
 plt.ylabel('k')
@@ -46,6 +52,23 @@ plt.xlabel('n')
 plt.title(r'$\:k\, for 1 \leq\ %d \,at\,p = %0.2f $' %(n,p1))
 
 plt.savefig('result4_p=%0.2f.png' %(p1))
+plt.show()
+
+plt.plot(k2)
+plt.ylabel('k')
+plt.xlabel('n')
+plt.title(r'$\:k\, for 1 \leq\ %d \,at\,p = %0.2f $' %(n,p2))
+
+plt.savefig('result4_p=%0.2f.png' %(p2))
+plt.show()
+
+
+plt.plot(k3)
+plt.ylabel('k')
+plt.xlabel('n')
+plt.title(r'$\:k\, for 1 \leq\ %d \,at\,p = %0.2f $' %(n,p3))
+
+plt.savefig('result4_p=%0.2f.png' %(p3))
 plt.show()
 
 print("Calculation Time: %s seconds " % (time.time() - start_time))
