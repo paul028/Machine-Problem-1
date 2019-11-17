@@ -7,7 +7,9 @@ Created on Sun Nov 17 13:16:14 2019
 
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
+start_time = time.time()
 def constant_set(n):
     reciprocal_cn=0 #reciprocal of cn
     for i in range(n):
@@ -15,4 +17,36 @@ def constant_set(n):
     
     cn = 1/reciprocal_cn
     return cn;
+
+def zipfunc(n,p):
+    k=np.zeros(n)
+    for m in range (n):
+        k_prime=1
+        #print(m)
+        a= 1/constant_set(k_prime)
+        b=p/constant_set(m+1)
+        while a < b:
+            print(a)
+            print(b)
+            print("%f < %f " % (a,b))
+            k_prime = k_prime + 1
+            k[m] =k_prime      
+            a= 1/constant_set(k_prime)
+            b=p/constant_set(m+1)
+    return k;
+
+n=1000
+
+p1=0.8
+k1=zipfunc(10,0.75)
+
+plt.plot(k1)
+plt.ylabel('k')
+plt.xlabel('n')
+plt.title(r'$\:k\, for 1 \leq\ %d \,at\,p = %0.2f $' %(n,p1))
+
+plt.savefig('result4_p=%0.2f.png' %(p1))
+plt.show()
+
+print("Calculation Time: %s seconds " % (time.time() - start_time))
 
