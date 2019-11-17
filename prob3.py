@@ -8,8 +8,8 @@ import numpy as np
 import time
 import matplotlib.pyplot as plt
 start_time = time.time()
-n=60000
-k=12489
+n=20
+k=5
 p=0.5
 
 
@@ -25,7 +25,7 @@ def ln_factorial(n):
     return ln_fac;
 
 def binpmf(n,p,k):
-    p_X_k=np.zeros(n-k)
+    p_X_k=np.zeros(n-k+1)
     print("Calculating ln("+str(n)+")")
     ln_n_fac=ln_factorial(n)
     z=0
@@ -34,15 +34,16 @@ def binpmf(n,p,k):
         ln_k_fac=ln_factorial(k)
         ln_nk_fac=ln_factorial(n-k)
         ln_X_p_k= ln_n_fac - ln_k_fac - ln_nk_fac + (k*np.log(p)) + ((n-k)*np.log(1-p))
-        
+        print(ln_X_p_k)
         print("Calculating PMF at k="+str(k))
         p_X_k[z]= np.exp(ln_X_p_k)
+        print(p_X_k[z])
         z=z+1
         
     return p_X_k;
 
 prob_X_K=binpmf(n,p,k)
-print("Calculation Time: %s seconds "(time.time() - start_time))
+print("Calculation Time: %s seconds " %(time.time() - start_time))
 
 plt.plot(prob_X_K)
 plt.ylabel(r'$\P_k(K)$')

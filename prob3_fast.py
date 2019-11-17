@@ -27,7 +27,7 @@ def ln_factorial(n):
 print("Calculate all ln from 1 to n")
 ln_n_fac = ln_factorial(n)
 
-p_X_k = np.zeros(n-k)
+p_X_k = np.zeros(n-k+1)
 z=0
 for k in range(k,n+1,1):
     
@@ -50,7 +50,7 @@ for k in range(k,n+1,1):
 #    return p_X_k;
 
 #prob_X_K=binpmf(n,p,k)
-print("Calculation Time: %s seconds "(time.time() - start_time))
+print("Calculation Time: %s seconds " % (time.time() - start_time))
 
 plt.plot(prob_X_K)
 plt.ylabel(r'$\P_k(K)$')
