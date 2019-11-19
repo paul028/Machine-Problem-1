@@ -45,43 +45,15 @@ k2=zipfunc(n,p2)
 p3=0.9
 k3=zipfunc(n,p3)
 
-plt.plot(k1)
-plt.ylabel('k')
-plt.xlabel('n')
-plt.title(r'$\:k\, for 1 \leq\ n \leq\ %d $' %(n))
-plt.legend(['p='+str(p1)],loc=2)
-
-plt.savefig('result4_p=%0.2f.png' %(p1))
-plt.show()
-
-plt.plot(k2)
-plt.ylabel('k')
-plt.xlabel('n')
-plt.title(r'$\:k\, for 1 \leq\ n \leq\ %d $' %(n))
-plt.legend(['p='+str(p1)],loc=2)
-
-plt.savefig('result4_p=%0.2f.png' %(p2))
-plt.show()
-
-
-plt.plot(k3)
-plt.ylabel('k')
-plt.xlabel('n')
-plt.title(r'$\:k\, for 1 \leq\ n \leq\ %d $' %(n))
-plt.legend(['p='+str(p2),'p='+str(p2),'p='+str(p3)],loc=2)
-
-plt.savefig('result4_p=%0.2f.png' %(p3))
-plt.show()
-
 line_chart1 = plt.plot(k1)
 line_chart2 = plt.plot(k2)
 line_chart4 = plt.plot(k3)
 plt.title(r'$\:k\, for 1 \leq\ n \leq\ %d $' %(n))
 plt.ylabel('k')
 plt.xlabel('n')
-plt.legend(['p='+str(p3)],loc=2)
+plt.legend(['p='+str(p1),'p='+str(p2),'p='+str(p3)],loc=2)
 
 plt.show()
-
+plt.savefig('Result_4.png')
 print("Calculation Time: %s seconds " % (time.time() - start_time))
 
