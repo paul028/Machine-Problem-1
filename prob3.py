@@ -18,38 +18,9 @@ def ln_factorial(n):
     ln_fac=math.lgamma(n+1)
     
     return ln_fac
-
-
-#def ln_factorial(n):
-#    ln_fac=0
-##    print("Calculating  ln("+str(n)+"!) from the sum of ln(x) from 1 to"+str(n))
-#    for x in range(n):
-#        log_x=math.log(x+1)
-#        print("ln("+str(x+1)+") ="+str(log_x))
-#        ln_fac= ln_fac + log_x
-#    
-#    print("ln("+str(n)+"!) ="+str(ln_fac))
-#    return ln_fac;
-
-def binpmf_org(n,p,k):
-    p_x_k=np.zeros(n-k+1)
-    n_fac=math.factorial(n)
-    print(n_fac)
-    z=0
-    for k in range(k,n+1,1):
-        print('---')
-        print(k)
-        k_fac=math.factorial(k)
-        print(k_fac)
-        n_k_fac=math.factorial(n-k)
-        print(n_k_fac)
-        p_x_k[z] = (n_fac/(k_fac*n_k_fac))*pow(p,k)*pow((1-p),(n-k))
-        print(p_x_k[z])
-        z=z+1
-    
-    return p_x_k;    
+ 
 def binpmf(n,p,k):
-    p_X_k=np.zeros(n-k+1)
+    p_X_k=np.zeros(((n-k+1),2))
     print("Calculating ln("+str(n)+")")
     ln_n_fac=ln_factorial(n)
     z=0
@@ -58,20 +29,26 @@ def binpmf(n,p,k):
         ln_k_fac=ln_factorial(j)
         ln_nk_fac=ln_factorial(n-j)
         ln_X_p_k= ln_n_fac - ln_k_fac - ln_nk_fac + (j*math.log(p)) + ((n-j)*math.log(1-p))
-
-        p_X_k[z]= math.exp(ln_X_p_k)
+        
+        if j==0:
+            p_X_k[z][0]= math.exp(ln_X_p_k)
+        else:
+            p_X_k[z][0]=  p_X_k[z-1][0]+math.exp(ln_X_p_k)
         print(p_X_k[z])
+        p_X_k[z][1]=k+z
         z=z+1
+    
     return p_X_k;
 
 prob_X_K=binpmf(n,p,k)
-    
-print("Calculation Time: %s seconds " %(time.time() - start_time))
 
-plt.plot(prob_X_K)
-plt.ylabel(r'$\P_k(K)$')
+print("Calculation Time: %s seconds " %(time.time() - start_time))
+y=prob_X_K[:,0]
+x=prob_X_K[:,1]
+plt.plot(x,y)
+plt.ylabel('P_k(K)')
 plt.xlabel('k')
 plt.title('Probability Curve')
 
-#plt.savefig('result3.1.png')
+plt.savefig('result3.1.png')
 plt.show()
