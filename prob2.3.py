@@ -32,13 +32,14 @@ def system_operational(w,x,y,z):
     p_system=1-((1-p_a)*(1-p_b))
     return p_system;
     
-def component_replacementlist(n): #generate all 20 combinations of components replacement such that a+b+c+d=20 such that a - component 1-40, b - component 41-50, c - component 51-80, d - component 81-100
+def component_replacementlist(n): 
         print("Generating Replacement Combinations for n="+str(n))
         replaced_components = list()
-        len([replaced_components.append((a,b,c,d)) for a in range(41) for b in range(11) for c in range(31) for d in range (21) if a + b + c+d == n]) ##generate combination of components to be replaced
+        len([replaced_components.append((a,b,c,d)) for a in range(41) 
+        for b in range(11) for c in range(31) 
+        for d in range (21) if a + b + c+d == n]) 
         
         return replaced_components;
-
 
 print("Begin Experiment")    
 

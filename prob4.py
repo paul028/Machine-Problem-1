@@ -29,10 +29,21 @@ def zipfunc(n,p):
             print("k = "+str(k_prime)+" at n = "+str(m+1))
             print("%f < %f " % (a,b))
             k_prime = k_prime + 1
-            k[m] =k_prime      
+            k[m] =1+k_prime      
             a= 1/constant_set(k_prime)
             b=p/constant_set(m+1)
     return k;
+
+w=list()
+for q in range(1000):
+    w.append(constant_set(q+1))
+
+plt.plot(w)
+plt.ylabel('c(n)')
+plt.xlabel('n')
+plt.title(' c(n) Function Graph')
+plt.savefig('c_nFunction.png')
+plt.show()
 
 n=1000
 
@@ -53,7 +64,7 @@ plt.ylabel('k')
 plt.xlabel('n')
 plt.legend(['p='+str(p1),'p='+str(p2),'p='+str(p3)],loc=2)
 
-plt.show()
 plt.savefig('Result_4.png')
+plt.show()
 print("Calculation Time: %s seconds " % (time.time() - start_time))
 

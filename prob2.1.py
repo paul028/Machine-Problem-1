@@ -10,48 +10,23 @@ import numpy as np
 
 q=0.275 #default failure probability per component
 p=1-q #default success probability per component
-components=np.full(100,p)#initialize component with default probability
 components_failure=np.full(100,q)
 
 
 def series1_40():
-    print("1-40 Series")
-    prob_series=1
-    for x in range(40):
-        print(x)
-        prob_series=prob_series*(1-components_failure[x])
-    
+    prob_series=pow((1-q),40)
     return prob_series;
     
 def parallel41_50():
-    print("41-50 Parallel")
-    prob_parallelfail=1
-    for x in range(40,50):
-        print(x)    
-        prob_parallelfail=prob_parallelfail*components_failure[x]
-        
-    prob_parallel=1-prob_parallelfail
-    
+    prob_parallel=1-pow(q,(10))
     return prob_parallel;
 
 def series51_80():
-    print("51-80 Series")
-    prob_series=1
-    for x in range(50,80):
-        print(x)  
-        prob_series=prob_series*(1-components_failure[x])
-        
+    prob_series=pow((1-q),30)
     return prob_series;
 
 def parallel81_100():
-    print("81-100 Parallel")
-    prob_parallelfail=1
-    for x in range(80,100):
-        print(x)  
-        prob_parallelfail=prob_parallelfail*components_failure[x]
-    
-    prob_parallel=1-prob_parallelfail
-    
+    prob_parallel=1-pow(q,(20))
     return prob_parallel;
 
 def system_operational(components_failure):
@@ -61,6 +36,6 @@ def system_operational(components_failure):
     p_b=series51_80()*parallel81_100() #condition B
     
     p_system=1-((1-p_a)*(1-p_b))
-    return p_a,p_b,p_system;
+    return p_system;
 
 print(system_operational(components_failure))

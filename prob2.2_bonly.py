@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+1# -*- coding: utf-8 -*-
 """
 Created on Sun Nov  3 11:36:51 2019
 
@@ -32,10 +32,11 @@ def system_operational(y,z):
     print(p_system)
     return p_system;
     
-def component_replacementlist(): #generate all 20 combinations of components replacement such that a+b+c+d=20 such that a - component 1-40, b - component 41-50, c - component 51-80, d - component 81-100
+def component_replacementlist():
         print("Generating Replacement Combinations")
         replaced_components = list()
-        len([replaced_components.append((c,d)) for c in range(21) for d in range (21) if c+d == 20]) ##generate combination of components to be replaced
+        len([replaced_components.append((c,d)) for c in range(21) 
+        for d in range (21) if c+d == 20])
         
         return replaced_components;
 
@@ -46,7 +47,6 @@ result_list= list()
 print("Calculating All possible working probability")
 i=1
 for x in range(len(replacements)):
-   # result_list.append((replacements[x][0],replacements[x][1],replacements[x][2],replacements[x][3], system_operational(replacements[x][0],replacements[x][1],replacements[x][2],replacements[x][3])))
    print(i+x)
    result_list.append(system_operational(replacements[x][0],replacements[x][1]))
 print("--------------------------------------------")

@@ -37,9 +37,9 @@ def system_operational(w,x,y,z):
     return p_system;
     
 def component_replacementlist(): #generate all 20 combinations of components replacement such that a+b+c+d=20 such that a - component 1-40, b - component 41-50, c - component 51-80, d - component 81-100
-        print("Generating Replacement Combinations")
         replaced_components = list()
-        len([replaced_components.append((a,b,c,d)) for a in range(21) for b in range(21) for c in range(21) for d in range (21) if a + b + c+d == 20 and b<=10]) ##generate combination of components to be replaced
+        len([replaced_components.append((a,b,c,d)) for a in range(21) for b in range(21) for c in range(21) 
+        for d in range (21) if a + b + c+d == 20 and b<=10]) ##generate combination of components to be replaced
         
         return replaced_components;
 
@@ -50,9 +50,9 @@ result_list= list()
 print("Calculating All possible working probability")
 i=1
 for x in range(len(replacements)):
-   # result_list.append((replacements[x][0],replacements[x][1],replacements[x][2],replacements[x][3], system_operational(replacements[x][0],replacements[x][1],replacements[x][2],replacements[x][3])))
    print(i+x)
-   result_list.append(system_operational(replacements[x][0],replacements[x][1],replacements[x][2],replacements[x][3]))
+   result_list.append(system_operational(replacements[x][0],
+   replacements[x][1],replacements[x][2],replacements[x][3]))
 print("--------------------------------------------")
 m = max(result_list) # get the maximum probability
 print("Maximum Possible Operational Probability: "+str(m))
