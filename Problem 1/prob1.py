@@ -82,3 +82,15 @@ plt.ylabel("k")
 plt.savefig('result1.1.png')
 # Display the graph on the screen
 plt.show()
+
+#1.3 -Probability, Expected value, 
+print("Calculate probability for 20 trials")
+p=np.zeros(20)
+E_X=np.zeros(20)
+std_X=np.zeros(20)
+print("p    E(X)    STD")
+for i in range(20):
+    p[i]=heads_pr[i]/no_toss
+    E_X[i]=no_toss*p[i]
+    std_X[i]=np.sqrt(n*p[i]*(1-p[i]))
+    print(str(p[i])+"    "+str(E_X[i])+"    "+str(std_X[i]))
